@@ -4,11 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Parent from './parent';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-    <Parent />
+    <Router basename={'/${process.env.PUBLIC_URL}'}>
+      <Routes>
+        <Route exact path="/" component={<App/>} />
+        <Route exact path="/parent" component={<Parent/>} />
+      </Routes>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
